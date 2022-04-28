@@ -1,0 +1,25 @@
+create jasper file
+
+connect from java
+
+select blank file - next- select folder in project- rename the file witj jrxml(dont connect to database)-- next---finish
+
+
+outline---delete all except title and summary
+
+Dataset and Queryedit dialog--click--java bean--click on ...-----select the pojo-----------select all fileds except class--------add select fields
+
+outline------click on jrxml file(right click) create dataset---------------create a new dataset-next-next--finish
+
+outline-------fields-----select the fileds for dataset(eg name, id)--------copy----paste in------------above dataset fileds
+
+outline----parameter-create parameter-----click on created parameter name(right click)-------show properties-----------in class----select JRBeanCollectionDatasource class
+
+Palette-----------Table---------drag and drop--------necxt------------Use JRDatasource expression(select paramter created by us) and next select cloneDatasouce method -----------finish
+
+select data fields-----------next-----------------check in only column header-----------------finish
+
+
+Come to service class--------------
+
+parameter.put("create parameter name", "give JRBeanDataCollectionDatasource instance")

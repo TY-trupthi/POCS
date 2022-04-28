@@ -1,0 +1,23 @@
+Sushma :
+coach, specialization, coach for session, package
+Trupthi :
+coach for session, transformation
+Soumyajit :
+
+
+{
+"packageId":0,
+	
+	"packageName":"abc",
+	
+	
+"packageDuration":120,
+	
+	"actualPrice":1234,
+	
+	"offerPercentage":10,
+	
+	"packageType":"abc",
+	
+	"packageIcon":"abc"
+}

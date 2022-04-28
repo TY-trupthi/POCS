@@ -1,0 +1,3 @@
+jdbc:mysql://localhost:3306/jasyptdb
+
+jdbc:mysql://test-strongame.cua86fq5qkiv.ap-south-1.rds.amazonaws.com:3306/bx61wtw2ljcrplrmheon?createDatabaseIfNotExist=true
