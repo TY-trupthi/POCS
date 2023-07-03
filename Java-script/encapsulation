@@ -1,0 +1,11 @@
+let product = {
+    name : "pen",
+    tax : 1,
+    amount : 10,
+    discount : 2,
+    total : function (){
+        return this.amount - this.discount + this.tax;
+    }
+}
+
+console.log(product.total());

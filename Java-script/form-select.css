@@ -1,0 +1,11 @@
+.container-1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.container-1 button, select{
+   height: 50px;
+   width: 100px;
+   text-align: center;
+}

@@ -1,0 +1,9 @@
+.flex-container-1{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.flex-container-1 img{
+    padding: 10px;
+}

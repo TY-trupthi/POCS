@@ -1,0 +1,25 @@
+// Call by value
+let myNumber = 5;
+
+function increment(myNumber){
+  myNumber = myNumber + 1;
+  console.log(myNumber + " Inside");
+}
+
+increment(myNumber);
+
+console.log(myNumber);
+
+// Call by reference
+
+let myObject = {
+    value : 5
+};
+
+function incrementObjectValue(myObject1){
+   myObject1.value = myObject1.value + 1;
+}
+
+incrementObjectValue(myObject);
+
+console.log(myObject.value + " By reference")

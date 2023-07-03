@@ -1,0 +1,24 @@
+let value = "Hello I am here";
+
+let splittedValue = value.toLocaleUpperCase().split(" ");
+
+console.log(splittedValue);
+
+let mappedValue = splittedValue.map(value => value.charAt(0));
+
+console.log(mappedValue);
+
+let joinedValue = mappedValue.join("");
+
+console.log(joinedValue);
+
+let newValue = "hello hi";
+
+newValue = newValue.toUpperCase().split(" ").sort(
+    function (a,b){
+return a.length - b.length;
+    }
+);
+
+console.log(newValue);
+

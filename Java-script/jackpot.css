@@ -1,0 +1,68 @@
+.you-dealer {
+    background-color: rgb(245, 140, 217);
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.your-box, .dealer-box {
+    text-align: center;
+    width: 50%;
+    border: 1px solid black;
+}
+
+
+.button-container{
+    padding: 5px;
+    display: flex;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.result-container{
+    padding: 5px; 
+    border: 1px solid black;  
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+table, th, td{
+   padding: 10px;
+   border: 1px solid black;  
+ text-align: center;
+}
+
+
+.container-1 h1,h3{
+    text-align: center;
+}
+
+.image-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.image-div img{
+    height: 100px; 
+    width: 100px;
+    padding: 20px;
+
+}
+
+.dealer-image-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.dealer-image-div img{
+    height: 100px; 
+    width: 100px;
+    padding: 20px;
+
+}

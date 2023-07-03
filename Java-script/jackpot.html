@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet", href="jackpot.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-1">
+        <h1>Jackpot Game</h1>
+        <h3>Let's Play</h3>
+        <div class="you-dealer", id="you-dealer">
+            <div class="your-box", id="your-box">
+                <h2>You: <span id="your-result">0</span></h2>
+                <div class="image-div", id="image-div"> </div>
+            </div>
+            <div class="dealer-box", id="dealer-box">
+                <h2>Dealer: <span id="dealer-result">0</span></h2>
+                <div class="dealer-image-div", id="dealer-image-div"> </div>
+            </div>
+        </div>
+        <div class="button-container", id="button-container">
+            <button class="btn btn-primary", id="hit">Hit</button>
+            <button class= "btn btn-warning", id="stand">Stand</button>
+            <button  class= "btn btn-success", id="deal">Deal</button>
+        </div>
+        <div class="result-container", id="result-container">
+             <table>
+                <tr>
+                    <th>Wins</th>
+                    <th>Losses</th>
+                    <th>Draws</th>
+                </tr>
+                <tr>
+                    <td><span id="wins">0</span></td>
+                    <td><span id="losses">0</span></td>
+                    <td><span id="draws">0</span></td>
+                </tr>
+             </table>
+        </div>
+
+    </div>
+    <script src="jackpot.js"></script>
+</body>
+</html>
