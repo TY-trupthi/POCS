@@ -24,41 +24,55 @@ import microservice.moviecatalogservice.pojo.UserRatings;
 @RestController
 @RequestMapping("/catalog")
 public class MovieCatalogController {
-		
+
 	@Autowired
 	RestTemplate restTemplate;
-	
-	 private static final String MOVIE_CATALOG_SERVICE = "movieCatalogService";
-	 
-	 Logger logger=LoggerFactory.getLogger(MovieCatalogController.class);
-	
+
+	private static final String MOVIE_CATALOG_SERVICE = "movieCatalogService";
+
+	Logger logger = LoggerFactory.getLogger(MovieCatalogController.class);
+
 	@Autowired
 	private WebClient.Builder webClientBuilder;
-	
+
+	@Autowired
+	private MovieControllerFeign movieControllerFeign;
+
 	@RequestMapping("/{userId}")
-	@CircuitBreaker(name= MOVIE_CATALOG_SERVICE, fallbackMethod = "movieCatalogFallBack")
+	//@CircuitBreaker(name = MOVIE_CATALOG_SERVICE, fallbackMethod = "movieCatalogFallBack")
 	public ResponseEntity<SuccessResponse> getCatalogItem(@PathVariable String userId) {
 		logger.info("Inside getCatalogItem");
-		//UserRatings userRatings = restTemplate.getForObject("http://localhost:8083/ratingsdata/users/"+userId, UserRatings.class);
-		UserRatings userRatings = restTemplate.getForObject("http://rating-info-service/ratingsdata/users/"+userId, UserRatings.class);
+		// UserRatings userRatings =
+		// restTemplate.getForObject("http://localhost:8083/ratingsdata/users/"+userId,
+		// UserRatings.class);
+		// UserRatings userRatings =
+		// restTemplate.getForObject("http://rating-info-service/ratingsdata/users/"+userId,
+		// UserRatings.class);
 		List<CatalogItem> catalogItems = new ArrayList<>();
-		for (Rating rating : userRatings.getUserRathings()) {
-	   // Movie movie = restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(), Movie.class);
-		Movie movie = restTemplate.getForObject("http://movie-info-service/movies/"+rating.getMovieId(), Movie.class);
+		// for (Rating rating : userRatings.getUserRathings()) {
+		// Movie movie =
+		// restTemplate.getForObject("http://localhost:8082/movies/"+rating.getMovieId(),
+		// Movie.class);
+		// Movie movie =
+		// restTemplate.getForObject("http://movie-info-service/movies/"+rating.getMovieId(),
+		// Movie.class);
 		/*
 		 * Movie movie = webClientBuilder.build() //webclient .get() // request method
 		 * type .uri("http://localhost:8082/movies/"+rating.getMovieId()).retrieve()
 		 * .bodyToMono(Movie.class) .block();//wait
-		 */			
-	    catalogItems.add(new CatalogItem(movie.getMovieName(), movie.getDescription(), rating.getRating()));
-		}
-		
-		return new ResponseEntity<>(new SuccessResponse(catalogItems, "Fetched successfully"),HttpStatus.OK);
+		 */
+		Movie movieInfo = movieControllerFeign.getMovieInfo(userId);
+		System.err.println(movieInfo);
+		catalogItems.add(new CatalogItem(movieInfo.getMovieName(), movieInfo.getDescription(), 1));
+		// }
+
+		return new ResponseEntity<>(new SuccessResponse(catalogItems, "Fetched successfully"), HttpStatus.OK);
 	}
-	
-	 public ResponseEntity<SuccessResponse> movieCatalogFallBack(String userId, Throwable e){
-		 logger.error("Inside fallback");
-		 return new ResponseEntity<>(new SuccessResponse(new ArrayList<>(), "Service down"),HttpStatus.INTERNAL_SERVER_ERROR);
-	 }
+
+//	public ResponseEntity<SuccessResponse> movieCatalogFallBack(String userId, Throwable e) {
+//		logger.error("Inside fallback");
+//		return new ResponseEntity<>(new SuccessResponse(new ArrayList<>(), "Service down"),
+//				HttpStatus.INTERNAL_SERVER_ERROR);
+//	}
 
 }

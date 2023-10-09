@@ -40,7 +40,6 @@ public class ContactDetailsController {
 	
 	@PostMapping
 	public ResponseEntity<SuccessResponse> save(@Valid @RequestBody ContactDetailsDTO contactDetailsDTO) {
-		System.err.println("Helllllll");
 		return ResponseEntity.ok().body(SuccessResponse.builder().data(contactDetailsServiceImpl.save(contactDetailsDTO))
 				.message("Save Successfully").error(Boolean.FALSE).build());
 	}
