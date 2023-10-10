@@ -1,0 +1,89 @@
+Garbadge Collectors
+1. Any exception on finialize method is not considered
+2. If for an object, finialize is called once on an object and if it is not destroyed, again finialize method won't be called
+
+Equals and ==
+Equals is the method present in object class, in object class its implementation is to check the object reference (memory location of object).
+In String and other Wrapper classes, it is overridden to compare the content
+== is the operator which will compare the value if it is primitive type and compare reference (memory location) if it is non primitive type
+If string is created with literal way and have same value, it will be single object having 2 reference variable, so if we compare them with == it will give true
+In integer if we store the value between -128 to +127, and have the same value, it will be same object so == will give true
+
+Static and Non static
+We can not use non static inside static but we can use static inside non static. If we want to use non static inside static then we have to create its object first and use it to call non static
+If we have static block, non static block, then static block will be called first and then constructor which will call its parent constructor, later non static and then this constructor
+
+final
+If we make the variable as final, we cannot use setters for that, either it has to be initialized while declaring for in constructor, if it is initialized while declaring we can not initialize in constructor
+We can pass null to the final variable
+
+Inheritance 
+1. If we have the final or method in parent, we cannot create the same method in child. It will give compilation error. We can use those method but can not override it
+2. If we create the object of Parent and hold it in Parent reference, it will call the method in Parent
+   If we create Child object and hold it in either Parent or Child reference, it will call the method in Child
+3. If we create a variable in Parent and try to change the value inside the method of Child, even if we make super.i will give the same value because we are overriding the super class variable itself
+4. If we use the concept of variable shadowing, that is is Parent and Child have same name, then we can make use of super keyword to access Parent class variable
+6. For the overriden method we can not have more restricted access modifier
+7. For the variable :- If same global variable is present in both parent and child, which variable will be invoked depends on reference type
+8. From Java 5 onwards, a child class can override a method of parent
+class and the child class method can return an object that is child of
+object return by parent class method
+Example:- If we have a method which return Object, we can override that method and return the child of object(That is any class in java)
+
+@Autowire
+If we create 2 implementation for 1 interface and autowire it, it will throw runtime error. Use @Primary or @Qualifier(userDetailsImpl)
+
+Local Variable
+Local varaible can never be static
+If we dont initialize and use its reference it will give compile time error (May not be initialized)
+
+Access Modifier
+Outer class can not private or protected
+If we make the variable or method private, it can not be inherited
+Default is more restricted then protected, because protected can be used in same package and inheritance but default is just in same package
+If we have the private method in parent, we can have the same method in child but that will be child specific method
+
+String and string builder
+string is immutable, that is the reason if we create any string with value assign it to one more reference and later change the previous object, new object will be created, those 2 objects will not be same
+In stringbuilder, the same senario both the reference will have same object because string builder is mutable. Any changes that we make it will changes the original object
+
+Simple for loop with index will not throw concurrentModificationException
+
+varargs
+we can use method(int... args){}, while calling method(1,2,3) any number of argument can be passed (0 or more). But if we have overloaded method to match any perticular parameter, that method will be called
+we can write the main method also using varargs, instead of main(String[] args) we can write (String... args)
+
+Main method
+Can be overloaded but the main method with standard signature will be called first by jvm
+
+Overloading
+In overloaded method, if we call it, it will search for more specific parameter
+Ex:- if we 2 method one which takes object and other which takes string and if you pass null, it will call string because null is not the object
+Similarly if you have one more addition method with Integer argument, it will cause ambuity because bith String and Integer will accept null. It will show compilation error
+
+Method
+When we have multiple access modifiers, those modifier can be written in any order but modifiers have to be written first and the return type, then the method name and parameter
+
+Constuctor
+We can not inherit the constructor
+constructor can not be abstract-> abstract method needs to be overriden and given implementation in subclass but constructor can not be overriden
+constructor can not be final -> The purpose of making method final is to avoid it from being overriden. Anyhow we can not override the constructor, so there is no point in making construtor final
+constructor can not be static -> Static means it belongs to class and it will have same value for entire class but constuctor is used to initialize object states which are object specific
+
+Pointer
+Java does not have pointer, object reference kind of acts as a pointer (Not completely)
+
+main method
+Main method can be final in java
+
+static imports
+Static imports are used to import static members (fields or methods) of a class directly, so you can use them without specifying the class name.
+Ex:- import static java.lang.Math.PI;
+
+Immutable class
+Make the class as final, make the variable as private and final, initialize these variables in constructor, don't provide setters for it.
+
+Collection
+if we use Collections.emptyList() to create the list, it will be immutable we can not add elements to it.
+listIterator can provide us the next index and previous index using nextIndex() and previousIndex() method which is not present in iterator.
+listIterator provide add and remove method to add or remove elements while iterating which is not provided by iterator
